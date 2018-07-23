@@ -1,7 +1,8 @@
 # Robotic Plant Breeder API
 
-##Mount
+## Mount
 ```docker build -t harvest-api .```
+
 ```docker-compose up -d```
 
 
