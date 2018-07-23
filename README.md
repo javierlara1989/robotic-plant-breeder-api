@@ -1,2 +1,9 @@
-# robotic-plant-breeder-api
-Flask API to check plants from web
+# Robotic Plant Breeder API
+
+##Mount
+```docker build -t harvest-api .```
+```docker-compose up -d```
+
+
+### Check on:
+```http://localhost:15050/```
