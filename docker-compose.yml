@@ -8,8 +8,7 @@ services:
     ports:
       - 15050:80
     environment:
-      - "MYSQL_DATABASE=harvest_local"
-      - "DB_HOST=mariadb"
+      - "CFG_FILE=config/env.cfg"
   mariadb:
     image: mariadb:10.1.23
     environment:
