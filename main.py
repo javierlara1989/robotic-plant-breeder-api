@@ -8,6 +8,9 @@ app.config['APPLICATION_ROOT'] = '/app'
 
 logging.basicConfig(filename=app.config['LOG_FILE'], level=logging.DEBUG)
 
+@app.route('/login')
+def login():
+    return render_template('login.html', title = 'Login')
 
 @app.route('/handle_login', methods=['POST'])
 def handle_login():
@@ -15,10 +18,6 @@ def handle_login():
         return render_template('dashboard.html', title = 'Plants Panel')
     else:
         return 'Login Fail.'
-
-@app.route('/login')
-def login():
-    return render_template('login.html', title = 'Login')
 
 @app.route('/plant/insert/<token>/<name>/<bank>', methods=['GET'])
 def plant_put(token, plant_id, wat, hum, hea):
