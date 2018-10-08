@@ -1,0 +1,82 @@
+body {
+  font-family: sans-serif;
+  color: #fff;
+  text-align: center;
+  background-color: #222;
+  margin-top: 10%;
+}
+
+div {
+  margin: 2rem auto;
+}
+
+
+/* variable declarations */
+
+$height: 1rem;
+$width: 10rem;
+$padding: 1px;
+$radius: 0.3*$height;
+$foreground: #998822;
+$background: white;
+
+/* meter styling */
+
+meter {
+  width: $width;
+  height: $height;
+  border: $padding solid $background;
+  border-radius: $radius;
+  background: $background;
+  /* webkit declarations for background */
+  &::-webkit-meter-bar {
+    background: none;
+  }
+  /* and this as the foreground */
+  &::-webkit-meter-optimum-value {
+    background: $foreground;
+    border: none;
+    border-radius: $radius;
+  }
+  /* Gecko uses this as the foreground */
+  &::-moz-meter-bar {
+    background: $foreground;
+    border: none;
+    border-radius: $radius;
+  }
+}
+
+
+/* fallback using .level .level-n classes */
+
+
+/* the background part */
+
+.level {
+  z-index: 0;
+  width: $width;
+  height: $height;
+  background: $background;
+  border-radius: $radius;
+  padding: $padding;
+  position: relative;
+  &::after {
+    z-index: 1;
+    content: "";
+    height: $height;
+    background: $foreground;
+    border-radius: $radius;
+    position: absolute;
+    left: $padding;
+    top: $padding;
+  }
+}
+
+
+/* the various lengths of the foreground */
+
+@for $i from 1 through 10 {
+  .level-#{$i}::after {
+    width: $width*$i/10;
+  }
+}

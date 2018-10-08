@@ -8,6 +8,10 @@ app.config['APPLICATION_ROOT'] = '/app'
 
 logging.basicConfig(filename=app.config['LOG_FILE'], level=logging.DEBUG)
 
+@app.route('/')
+def nada():
+    return render_template('dashboard.html', title = 'Plants Panel')
+
 @app.route('/login')
 def login():
     return render_template('login.html', title = 'Login')
